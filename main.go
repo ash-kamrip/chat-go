@@ -1,6 +1,7 @@
 package main
 
 import (
+	"flag"
 	"log"
 	"net/http"
 	"path/filepath"
@@ -21,9 +22,16 @@ func (t *templateHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	t.once.Do(func() {
 		t.templ = template.Must(template.ParseFiles(filepath.Join("templates", t.filename)))
 	})
-	t.templ.Execute(w, nil)
+	// nil here means we aren't passing the data from the request
+	// r specified here let's us extract data from http.Request
+	t.templ.Execute(w, r)
 }
 func main() {
+
+	var addr = flag.String("addr", ":8080", "The addr of the application")
+
+	flag.Parse()
+
 	// handlefunc maps a path : / to a function: here
 	template := &templateHandler{filename: "chat.html"}
 
@@ -36,7 +44,8 @@ func main() {
 	go r.run()
 
 	//starting the web server on the main thread
-	if err := http.ListenAndServe(":8080", nil); err != nil {
+	log.Println("Starting the web server on ", *addr)
+	if err := http.ListenAndServe(*addr, nil); err != nil {
 		// print error
 		log.Fatal("ListenAndServe:", err)
 	}
