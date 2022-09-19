@@ -4,9 +4,12 @@ import (
 	"flag"
 	"log"
 	"net/http"
+	"os"
 	"path/filepath"
 	"sync"
 	"text/template"
+
+	trace "github.com/ash-kamrip/tracer"
 )
 
 // templ represents a single template
@@ -37,6 +40,7 @@ func main() {
 
 	// create a Room
 	r := newRoom()
+	r.tracer = trace.New(os.Stdout)
 
 	http.HandleFunc("/", template.ServeHTTP)
 	http.HandleFunc("/room", r.ServeHTTP)
