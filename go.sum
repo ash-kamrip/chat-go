@@ -1,4 +1,6 @@
 github.com/ash-kamrip/tracer v0.0.0-20220919183705-78b1c322bb24 h1:5zrs5qAZIYWd8oTFfYma5XASmBgWH0diSADVnTsxaEU=
 github.com/ash-kamrip/tracer v0.0.0-20220919183705-78b1c322bb24/go.mod h1:xGP/kTQNEAg9tXMDHLph2jmaUlLjs0+enhYuOqOq4T8=
+github.com/ash-kamrip/tracer v0.0.0-20220920125710-a30c8f381109 h1:CMV7iqAhybHCVsE+xtFdE66lz6QmgL3h8aFpPMTZDXc=
+github.com/ash-kamrip/tracer v0.0.0-20220920125710-a30c8f381109/go.mod h1:xGP/kTQNEAg9tXMDHLph2jmaUlLjs0+enhYuOqOq4T8=
 github.com/gorilla/websocket v1.5.0 h1:PPwGk2jz7EePpoHN/+ClbZu8SPxiqlu12wZP/3sWmnc=
 github.com/gorilla/websocket v1.5.0/go.mod h1:YR8l580nyteQvAITg2hZ9XVh4b55+EU/adAjf1fMHhE=
